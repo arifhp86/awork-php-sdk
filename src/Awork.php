@@ -5,6 +5,7 @@ namespace Awork;
 use Awork\Api\Absence;
 use Awork\Api\Comment;
 use Awork\Api\Company;
+use Awork\Api\ContactInfo;
 use Awork\Api\Image;
 use Awork\Api\Me;
 use Awork\Api\Project;
@@ -29,6 +30,7 @@ class Awork
     private Image $image;
     private Absence $absence;
     private Company $company;
+    private ContactInfo $contactInfo;
 
     public function __construct(string $apiToken)
     {
@@ -93,5 +95,10 @@ class Awork
     public function companies(): Company
     {
         return $this->company ??= new Company($this->api);
+    }
+
+    public function contactInfo(): ContactInfo
+    {
+        return $this->contactInfo ??= new ContactInfo($this->api);
     }
 }

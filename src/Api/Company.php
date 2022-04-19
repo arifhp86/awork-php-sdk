@@ -16,7 +16,7 @@ class Company extends Endpoint
         );
     }
 
-    public function getProject(string $companyId): CompanyModel
+    public function getCompany(string $companyId): CompanyModel
     {
         return new CompanyModel(
             $this->api->get(sprintf('%s/%s', self::ENDPOINT, $companyId))->json()
