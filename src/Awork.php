@@ -13,6 +13,7 @@ use Awork\Api\ProjectStatus;
 use Awork\Api\ProjectTemplate;
 use Awork\Api\ProjectType;
 use Awork\Api\Task;
+use Awork\Api\Team;
 use Awork\Api\User;
 
 class Awork
@@ -31,6 +32,7 @@ class Awork
     private Absence $absence;
     private Company $company;
     private ContactInfo $contactInfo;
+    private Team $team;
 
     public function __construct(string $apiToken)
     {
@@ -100,5 +102,10 @@ class Awork
     public function contactInfo(): ContactInfo
     {
         return $this->contactInfo ??= new ContactInfo($this->api);
+    }
+
+    public function teams(): Team
+    {
+        return $this->team ??= new Team($this->api);
     }
 }
