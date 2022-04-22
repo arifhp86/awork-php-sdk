@@ -29,4 +29,9 @@ class Team extends Endpoint
             $this->api->post(self::ENDPOINT, $data)->json()
         );
     }
+
+    public function addProject(string $teamId, string $projectId)
+    {
+        return $this->api->post(sprintf('%s/%s/addprojects', self::ENDPOINT, $teamId), [$projectId]);
+    }
 }
