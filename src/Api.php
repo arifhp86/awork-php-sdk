@@ -29,9 +29,10 @@ class Api
      * @throws AuthenticationException
      * @throws NotFoundException
      */
-    public function get(string $endpoint): Response
+    public function get(string $endpoint, array $data = []): Response
     {
-        $this->latestResponse = $this->request()->get($endpoint, $this->getQueryParamaters());
+        $query = array_merge($this->getQueryParamaters(), $data);
+        $this->latestResponse = $this->request()->get($endpoint, $query);
 
         return $this->response();
     }

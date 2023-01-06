@@ -16,10 +16,10 @@ class Team extends Endpoint
         );
     }
 
-    public function getTeam(string $teamId): TeamModel
+    public function getTeam(string $teamId, array $data = []): TeamModel
     {
         return new TeamModel(
-            $this->api->get(sprintf('%s/%s', self::ENDPOINT, $teamId))->json()
+            $this->api->get(sprintf('%s/%s', self::ENDPOINT, $teamId), $data)->json()
         );
     }
 
